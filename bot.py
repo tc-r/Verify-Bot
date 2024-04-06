@@ -36,7 +36,7 @@ async def on_message(message):
 
 @client.command()
 async def verify(ctx, args):
-    role = 1225863775169544253
+    role = ROLE_ID
     user = ctx.author
     discord_id = ctx.author.id
     mycursor.execute(f'SELECT * FROM {db_name}_verification')
