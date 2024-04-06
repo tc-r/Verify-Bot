@@ -16,25 +16,25 @@ mydb = mysql.connector.connect(
 )
 mycursor = mydb.cursor()
 
-krma = commands.Bot(command_prefix='!', intents=discord.Intents.all())
-krma.remove_command('help')    
+client = commands.Bot(command_prefix='!', intents=discord.Intents.all())
+client.remove_command('help')    
     
-@krma.event
+@client.event
 async def on_ready():
     os.system('cls')
-    print(f'Bot: {krma.user.name} ({krma.user.id})\nGuild Count: {len(krma.guilds)}')
-    await krma.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="krmastudios.net"))
+    print(f'Bot: {client.user.name} ({client.user.id})\nGuild Count: {len(client.guilds)}')
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="clientstudios.net"))
 
-@krma.event
+@client.event
 async def on_message(message):
     if '!verify' in message.content.lower():
-        await krma.process_commands(message)
+        await client.process_commands(message)
         time.sleep(0.2)
         await message.delete()
     else:
-        await krma.process_commands(message)
+        await client.process_commands(message)
 
-@krma.command()
+@client.command()
 async def verify(ctx, args):
     role = 1225863775169544253
     user = ctx.author
@@ -55,6 +55,6 @@ async def verify(ctx, args):
 # Made by unknusr
 
 token = open('sub/token.txt')
-krma.run(token.read())
+client.run(token.read())
 
 # Made by unknusr
