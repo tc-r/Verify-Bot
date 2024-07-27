@@ -1,5 +1,3 @@
-# Made by syntax
-
 import discord
 import os
 import time
@@ -52,9 +50,5 @@ async def verify(ctx, args):
         await ctx.send('Invalid Code.', delete_after = 0.5)
     mydb.commit()
 
-# Made by syntax
-
 token = open('sub/token.txt')
 client.run(token.read())
-
-# Made by syntax
